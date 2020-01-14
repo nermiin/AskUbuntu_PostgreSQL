@@ -34,3 +34,35 @@ atılır.
 + Bir oy bir kullanıcı tarafından atılır. Bir kullanıcı birden fazla oylama
 yapabilir.
 + Cevaplanmamış sorular grup şeklinde bulunur.
+
+
+
+### İlişkisel şeması:
++ Questions ( questionId: Integer, AnswersId : Integer, CreationDate : smalldatetime, CloseDate:
+smalldatetime, userId:Integer, LastEditedDate: smalldatetime, LastEditedBy:Integer , TagId:
+Integer, Score: Integer, Title, AnswerCount, QuestionCount :Integer, typeId: Integer ).
++ QuestionType ( typeId: Integer, Name : Nvarchar (30) ).
++ Answers ( answerId: Integer, questionId : Integer, userId : Integer, Score : Integer, Text: String,
+CreationDate: smalldatetime, VoteId: Integer, commentId : Integer).
++ Users (userId: Integer, Email : String, Reputation : Integer, ProfilPic : Image , LastSeen :
+datetime, profileViews : Integer, merbershipDate : smalldatetime, DisplayName : Nvarchar (50),
+About : String, RoleId : Integer).
++ Roles ( roleId: Integer, questionId : Integer, roleTypeId : Integer, userId : Integer).
++ RoleType ( roleTypeId: Integer, Name : String ).
++ Chat (chatId: Integer, UserId: Integer, Text: String, RoomId: Integer).
++ Rooms ( roomId: Integer, QuestionId: Integer, Text : String, VoteId: Integer).
++ Comments (commentId: Integer, AnsweId : Integer, Text: String, VoteId: Integer, UserId :
+Integer ).
++ Search history ( searchId: Integer, Text : Sting , URL : String , questionId : Integer ).
++ Feedback ( feedId: Integer, questionId : Integer, CreationDate: smalldatetime, VoteId: Integer).
++ Votes (voteId: Integer, voteTypeId : Integer, CreationDate: smalldatetime, userId: Integer ,
+questionId : Integer ).
++ VoteType ( voteTypeId: Integer, Name : String ).
++ EditHistory ( editHistoryId: Integer, userId: Integer, editTypeId : Integer, Url : String ).
++ EditType (editTypeId: Integer, IsAnswer: bit, IsQuestion: bit, IsComment: bit ).
++ Blogs ( blogId: Integer, userId : Integer, Text: String ).
++ Badges ( badgeId: Integer, Name: String, Date: smalldatetime, UserId : Integer, badgeTypeId:
+Integer ).
++ BadgeType (badgeTypeId : Integer , Name : Nvarchar(30)).
++ Tags (tagId: Integer, tagTypeId: Integer).
++ tagTypes (tagTypeId: Integer, Name: nvarchar (50)).
